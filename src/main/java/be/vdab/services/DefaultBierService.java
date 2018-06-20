@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import be.vdab.entities.Bier;
 import be.vdab.repositories.BierRepository;
 
+@Service
+@ReadOnlyTransactionService
 public class DefaultBierService implements BierService {
 
 	final private BierRepository bierRepository;
