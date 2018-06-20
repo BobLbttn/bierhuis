@@ -18,7 +18,7 @@ import be.vdab.valueobjects.Adres;
 
 @Entity
 @Table(name="brouwers")
-public class Brouwers implements Serializable {
+public class Brouwer implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -32,9 +32,9 @@ public class Brouwers implements Serializable {
 	private Adres adres;
 	private BigDecimal omzet;
 
-	public Brouwers () {}
+	public Brouwer () {}
 	
-	public Brouwers(long brouwernr, String brnaam, Adres adres, BigDecimal omzet) {
+	public Brouwer(long brouwernr, String brnaam, Adres adres, BigDecimal omzet) {
 		this.id = brouwernr;
 		this.naam = brnaam;
 		this.adres = adres;
@@ -74,7 +74,7 @@ public class Brouwers implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Brouwers other = (Brouwers) obj;
+		Brouwer other = (Brouwer) obj;
 		if (adres == null) {
 			if (other.adres != null)
 				return false;
