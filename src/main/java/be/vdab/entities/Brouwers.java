@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.Valid;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
@@ -19,17 +18,16 @@ import be.vdab.valueobjects.Adres;
 
 @Entity
 @Table(name="brouwers")
-@XmlRootElement
 public class Brouwers implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long brouwernr;
+	private long id;
 	@NotBlank
-	@Length(min = 1, max = 50)
+	@Length(min = 1, max = 100)
 	@SafeHtml
-	private String brnaam;
+	private String naam;
 	@Valid
 	private Adres adres;
 	private BigDecimal omzet;
@@ -37,18 +35,18 @@ public class Brouwers implements Serializable {
 	public Brouwers () {}
 	
 	public Brouwers(long brouwernr, String brnaam, Adres adres, BigDecimal omzet) {
-		this.brouwernr = brouwernr;
-		this.brnaam = brnaam;
+		this.id = brouwernr;
+		this.naam = brnaam;
 		this.adres = adres;
 		this.omzet = omzet;
 	}
 
 	public long getBrouwernr() {
-		return brouwernr;
+		return id;
 	}
 
 	public String getBrnaam() {
-		return brnaam;
+		return naam;
 	}
 
 	public Adres getAdres() {
@@ -64,7 +62,7 @@ public class Brouwers implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adres == null) ? 0 : adres.hashCode());
-		result = prime * result + ((brnaam == null) ? 0 : brnaam.hashCode());
+		result = prime * result + ((naam == null) ? 0 : naam.hashCode());
 		return result;
 	}
 
@@ -82,13 +80,12 @@ public class Brouwers implements Serializable {
 				return false;
 		} else if (!adres.equals(other.adres))
 			return false;
-		if (brnaam == null) {
-			if (other.brnaam != null)
+		if (naam == null) {
+			if (other.naam != null)
 				return false;
-		} else if (!brnaam.equals(other.brnaam))
+		} else if (!naam.equals(other.naam))
 			return false;
 		return true;
 	}
-
 
 }
