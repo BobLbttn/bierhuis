@@ -27,7 +27,7 @@ public class DefaultBierService implements BierService {
 	@Override
 	public List<Bier> findAll() {
 		
-		return bierRepository.findAll(new Sort("naam"));
+		return bierRepository.findAll();
 	}
 
 	@Override

@@ -2,11 +2,16 @@ package be.vdab.entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.validation.Valid;
 
@@ -31,21 +36,27 @@ public class Brouwer implements Serializable {
 	@Valid
 	private Adres adres;
 	private BigDecimal omzet;
-
-	public Brouwer () {}
+	@OneToMany(mappedBy ="brouwer")
+	@OrderBy("naam")
+	private Set<Bier> bieren;
+	
+	public Brouwer () {
+		this.bieren = new LinkedHashSet<>();
+	}
 	
 	public Brouwer(long brouwernr, String brnaam, Adres adres, BigDecimal omzet) {
 		this.id = brouwernr;
 		this.naam = brnaam;
 		this.adres = adres;
 		this.omzet = omzet;
+		this.bieren = new LinkedHashSet<>();
 	}
 
-	public long getBrouwernr() {
+	public long getId() {
 		return id;
 	}
 
-	public String getBrnaam() {
+	public String getNaam() {
 		return naam;
 	}
 
@@ -55,6 +66,10 @@ public class Brouwer implements Serializable {
 
 	public BigDecimal getOmzet() {
 		return omzet;
+	}
+
+	public Set<Bier> getBieren() {
+		return Collections.unmodifiableSet(bieren);
 	}
 
 	@Override

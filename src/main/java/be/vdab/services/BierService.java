@@ -9,5 +9,4 @@ public interface BierService {
 	Optional<Bier> read(long id);
 	List<Bier> findAll();
 	long findAantalBieren();
-
 }
