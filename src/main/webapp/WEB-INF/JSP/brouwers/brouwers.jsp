@@ -15,7 +15,7 @@
 	<table>
 			<c:forEach items="${brouwers}" var="brouwer">
 				<tr>
-					<spring:url var='url' value='/brouwers/{id}/bieren'>
+					<spring:url var='url' value='/brouwers/{id}'>
  						<spring:param name='id' value='${brouwer.id}'/>
 					</spring:url>
 					<td><a href='${url}'>${brouwer.naam}</a></td>

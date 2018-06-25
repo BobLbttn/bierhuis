@@ -29,7 +29,7 @@ public class BrouwerController {
 		return new ModelAndView(BROUWERS_VIEW, "brouwers", brouwerService.findAll());
 	}
 	
-	@GetMapping("{brouwer}/bieren")
+	@GetMapping("{brouwer}")
 	ModelAndView read(@PathVariable Brouwer brouwer) {
 		ModelAndView mav = new ModelAndView(BIERENBYBROUWERS_VIEW);
 		if (brouwer != null) {
