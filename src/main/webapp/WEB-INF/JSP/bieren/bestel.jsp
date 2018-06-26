@@ -19,12 +19,16 @@
 		<dt>Soort</dt><dd>${bier.soort.naam}</dd>
 		<dt>Brouwer</dt><dd>${bier.brouwer.naam}</dd>
 	</dl>
-	<form:form method="post" commandName="bestelbonlijn">
+	<spring:url var='url' value='/bieren/{id}'>
+ 		<spring:param name='id' value='${bier.id}'/>
+	</spring:url>
+	<form:form commandName="aantalBieren" action='${url}' method='post'>
 		<form:label path='aantal'>Aantal:
 			<form:errors path='aantal' delimiter=", "/>
 		</form:label>
 		<form:input path='aantal' type="number" min="1" step="1" autofocus="autofocus" required="required" />
-		<input type="submit" value="Toevoegen" id="reserveerKnop">
+		<input type="submit" value="Toevoegen">
 	</form:form>
+
 </body>
 </html>
