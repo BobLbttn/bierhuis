@@ -36,13 +36,14 @@ public class BestelBon implements Serializable {
 	private String naam;
 	@Valid
 	@Embedded
+	@NotNull
 	private Adres adres;
 	
 	@ElementCollection
 	@CollectionTable(name = "bestelbonlijnen", joinColumns=@JoinColumn(name = "bestelbonid"))
 	Set<BestelbonLijn> bestelbonlijnen;
 	
-	protected BestelBon() {
+	public BestelBon() {
 		bestelbonlijnen = new LinkedHashSet <>();
 	}
 

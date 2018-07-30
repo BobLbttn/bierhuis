@@ -6,4 +6,5 @@ public interface Bestelling {
 	void setBestellijn(long id, int aantal);
 	Map<Long,Integer> getBestellijnen();
 	void clearBestellijnen();
+	int aantalBestellijnen();
 }

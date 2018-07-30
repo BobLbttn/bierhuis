@@ -34,10 +34,11 @@ public class BestelbonLijn implements Serializable {
 	
 	BestelbonLijn () {}
 
-	public BestelbonLijn(Bier bier, Integer aantal, BigDecimal prijs) {
+	public BestelbonLijn(Bier bier, Integer aantal) {
 		this.bier = bier;
 		this.aantal = aantal;
-		this.prijs = prijs;
+		//geen input voor prijs dus wordt aangenomen prijs = bierprijs
+		this.prijs = bier.getPrijs();
 	}
 
 	public Bier getBier() {
@@ -77,7 +78,7 @@ public class BestelbonLijn implements Serializable {
 		return true;
 	}
 
-	public BigDecimal totaalBestelbonLijn(){
+	public BigDecimal getTotaalBestelbonLijn(){
 		return prijs.multiply(BigDecimal.valueOf(aantal));
 	}
 	

@@ -31,15 +31,6 @@ public class Adres implements Serializable{
 	@SafeHtml
 	private String gemeente;
 	
-	public Adres () {}
-	
-	public Adres(String straat, String huisNr, Integer postcode, String gemeente) {
-		this.straat = straat;
-		this.huisNr = huisNr;
-		this.postcode = postcode;
-		this.gemeente = gemeente;
-	 }
-
 	public String getStraat() {
 		return straat;
 	}

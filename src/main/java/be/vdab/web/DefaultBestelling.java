@@ -33,4 +33,10 @@ public class DefaultBestelling implements Serializable, Bestelling {
 	public void clearBestellijnen() {
 		mijnBestelling.clear();
 	}
+	
+	@Override
+	public int aantalBestellijnen() {
+		return mijnBestelling.size();
+	}
+	
 }
