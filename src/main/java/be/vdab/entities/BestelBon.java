@@ -43,6 +43,8 @@ public class BestelBon implements Serializable {
 	@CollectionTable(name = "bestelbonlijnen", joinColumns=@JoinColumn(name = "bestelbonid"))
 	Set<BestelbonLijn> bestelbonlijnen;
 	
+	
+	
 	public BestelBon() {
 		bestelbonlijnen = new LinkedHashSet <>();
 	}
@@ -79,6 +81,11 @@ public class BestelBon implements Serializable {
 		this.bestelbonlijnen = bestelbonlijnen;
 	}
 
+	public int aantalBestelbonlijnen()
+	{
+		return bestelbonlijnen.size();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
