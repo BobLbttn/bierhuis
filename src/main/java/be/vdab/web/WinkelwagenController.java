@@ -58,7 +58,7 @@ public class WinkelwagenController {
 					)
 					.collect(Collectors.toSet());
 			b.setBestelbonlijnen(bestelbonlijnen);
-			return bestelbonlijnen.size();
+			return b.aantalBestelbonlijnen();
 		}
 		return 0;
 	}
