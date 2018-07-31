@@ -45,7 +45,7 @@ public class BierController {
 			LOGGER.log(Level.INFO, "bier:{0} -> aantal={1}", new Object[] {bier.getId(), aantalBieren.getAantal()});
 			bestelling.setBestellijn(bier.getId(), aantalBieren.getAantal());
 		}
-		return new ModelAndView(WINKELWAGEN_VIEW).addObject("bestelling", bestelling);
+		return new ModelAndView(WINKELWAGEN_VIEW);
 	}
 
 }
